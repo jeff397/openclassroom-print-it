@@ -19,8 +19,11 @@ const slides = [
 
 const leftArrow=document.querySelector(".arrow-left");
 const rightArrow=document.querySelector(".arrow-right");
+const totalOfSlides = slides.length;
 
 let slideIndex=0;
+
+dotsCreation();
 
 function slideToPreviousPicture(){
 	slideIndex= slideIndex-1;
@@ -33,3 +36,18 @@ function slideToNextPicture(){
 }
 
 rightArrow.addEventListener("click", slideToNextPicture);
+
+
+
+
+function dotsCreation() {
+	const dots= document.querySelector(".dots");
+	for (let index = 0; index < totalOfSlides; index++) {
+		const dot = document.createElement("div");
+		dot.setAttribute("class", "dot");
+		dots.appendChild(dot);
+
+	}
+
+}
+
