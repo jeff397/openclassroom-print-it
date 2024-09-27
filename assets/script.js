@@ -28,7 +28,7 @@ dotsPosition();
 caroussel(slideIndex);
 
 function slideToPreviousPicture(){
-	if (slideIndex ===0) {
+	if (slideIndex === 0) {
 		slideIndex=totalOfSlides-1;
 	}
 	else {
@@ -43,7 +43,7 @@ function slideToPreviousPicture(){
 leftArrow.addEventListener("click", slideToPreviousPicture);
 
 function slideToNextPicture(){
-	if (slideIndex = totalOfSlides -1) {
+	if (slideIndex === totalOfSlides -1) {
 		slideIndex = 0;
 	}
 	else {
@@ -73,10 +73,10 @@ function dotsPosition() {
 	for (let index = 0; index < numberOfDots.length; index++) {
 		const dot=numberOfDots[index];
 		if (index == slideIndex) {
-			dot.classList.add(".dot_selected");
+			dot.classList.add("dot_selected");
 		}
 		else {
-			dot.classList.remove(".dot-selected");
+			dot.classList.remove("dot-selected");
 		}
 	}
 }
