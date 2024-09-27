@@ -70,13 +70,13 @@ function dotsCreation() {
 
 function dotsPosition() {
 	const numberOfDots = document.querySelectorAll(".dot");
-	for (let index = 0; index < numberOfDots.length; index++) {
-		const dot=numberOfDots[index];
-		if (index == slideIndex) {
+	for (let index = 0; index <numberOfDots.length; index++) {
+		const dot = numberOfDots[index];
+		if (index === slideIndex) {
 			dot.classList.add("dot_selected");
 		}
 		else {
-			dot.classList.remove("dot-selected");
+			dot.classList.remove("dot_selected");
 		}
 	}
 }
@@ -84,8 +84,8 @@ function dotsPosition() {
 function caroussel(slideIndex) {
 	const carousselPhotos = slides[slideIndex];
 	console.log("photo");
-	const image = document.querySelector(".banner-img");
-	image.setAttribute("src","./assets/images/slideshow/" + carousselPhotos.image);
+	const photo = document.querySelector(".banner-img");
+	photo.setAttribute("src","./assets/images/slideshow/" + carousselPhotos.image);
 	const text = document.querySelector(".banner-tagline");
 	text.innerHTML= carousselPhotos.tagLine;
 
