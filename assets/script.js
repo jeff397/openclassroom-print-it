@@ -24,15 +24,32 @@ const totalOfSlides = slides.length;
 let slideIndex=0;
 
 dotsCreation();
+dotsPosition();
+caroussel(slideIndex);
 
 function slideToPreviousPicture(){
-	slideIndex= slideIndex-1;
+	if (slideIndex ===0) {
+		slideIndex=totalOfSlides-1;
+	}
+	else {
+		slideIndex -- ;
+
+	 }
+	 caroussel(slideIndex);
+	 
+	
 }
 
 leftArrow.addEventListener("click", slideToPreviousPicture);
 
 function slideToNextPicture(){
-	slideIndex= slideIndex+1;
+	if (slideIndex = totalOfSlides -1) {
+		slideIndex = 0;
+	}
+	else {
+		slideIndex ++;
+	}
+	caroussel(slideIndex);
 }
 
 rightArrow.addEventListener("click", slideToNextPicture);
@@ -49,5 +66,29 @@ function dotsCreation() {
 
 	}
 
+}
+
+function dotsPosition() {
+	const numberOfDots = document.querySelectorAll(".dot");
+	for (let index = 0; index < numberOfDots.length; index++) {
+		const dot=numberOfDots[index];
+		if (index == slideIndex) {
+			dot.classList.add(".dot_selected");
+		}
+		else {
+			dot.classList.remove(".dot-selected");
+		}
+	}
+}
+
+function caroussel(slideIndex) {
+	const carousselPhotos = slides[slideIndex];
+	console.log("photo");
+	const image = document.querySelector(".banner-img");
+	image.setAttribute("src","./assets/images/slideshow/" + carousselPhotos.image);
+	const text = document.querySelector(".banner-tagline");
+	text.innerHTML= carousselPhotos.tagLine;
+
+	dotsPosition();
 }
 
